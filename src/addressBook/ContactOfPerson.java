@@ -85,8 +85,9 @@ public class ContactOfPerson {
         return addressString;
     }
 
-    public static void main(String[] args) {
-        ContactOfPerson c = new ContactOfPerson("Sumesh", "Jena", "Basanty Colony", "Rourkela", "Odisha", "769012", "7008944265");
-        System.out.println(c);
-    }
+//    public static void main(String[] args) {
+//        ContactOfPerson c = new ContactOfPerson("Sumesh", "Jena", "Basanty Colony", "Rourkela", "Odisha", "769012", "7008944265");
+//        System.out.println(c);
+//    }//
+
 }
