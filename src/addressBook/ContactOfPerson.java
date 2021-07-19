@@ -76,7 +76,7 @@ public class ContactOfPerson {
         this.phoneNo = phoneNo;
     }
 
-    @Override
+   
     public String toString() {
         String addressString = "Name: " + firstName + " " + lastName +
                 "\nPhone: " + phoneNo +

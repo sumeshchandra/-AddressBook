@@ -25,14 +25,12 @@ public class AddressBookMain {
         return new ContactOfPerson(firstName, lastName, address, city, state, zipCode, phoneNumber);
     }
 
-
-    //menu baar
     static void menu() {
         ContactOfPerson ContactDetails = null;
         int choice;
         do {
             Scanner sc = new Scanner(System.in);
-            System.out.println("Enter ur choice \n 1 : Add \n 2 :  Display ");
+            System.out.println("Enter ur choice \n 1 : Add \n 2 : Edit \n 3 : Display ");
             choice = sc.nextInt();
             switch (choice) {
                 case 1:
@@ -42,9 +40,9 @@ public class AddressBookMain {
                     System.out.println(ContactDetails);
                     break;
                 default:
-                    System.out.println("Enter  from 1 to 2");
+                    System.out.println("Enter Num from 1 to 3");
             }
-        } while (choice < 2);
+        } while (choice < 3);
     }
 
     public static void main(String[] args) {
