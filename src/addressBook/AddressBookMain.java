@@ -31,7 +31,7 @@ public class AddressBookMain {
         do {
             Scanner sc = new Scanner(System.in);
             System.out.println("Enter ur choice \n 1 : Add \n 2 : Edit \n 3 : Display ");
-            choice = sc.nextInt();
+            choice = sc.nextInt();   // taking user choice between the given 3 choice
             switch (choice) {
                 case 1:
                     ContactDetails = add();

@@ -9,7 +9,6 @@ public class ContactOfPerson {
     public String zip;
     public String phoneNo;
 
-
     public ContactOfPerson(String firstName, String lastName, String address, String city, String state, String zip,
                            String phoneNo) {
 
@@ -76,7 +75,7 @@ public class ContactOfPerson {
         this.phoneNo = phoneNo;
     }
 
-   
+
     public String toString() {
         String addressString = "Name: " + firstName + " " + lastName +
                 "\nPhone: " + phoneNo +
