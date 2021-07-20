@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class AddressBookMain {
 
+    static ContactOfPerson ContactDetails;
+
     static ContactOfPerson add() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the Details of ContactDetails");
@@ -25,6 +27,22 @@ public class AddressBookMain {
         return new ContactOfPerson(firstName, lastName, address, city, state, zipCode, phoneNumber);
     }
 
+    static ContactOfPerson edit(ContactOfPerson contactDetails) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the Address");
+        ContactDetails.address = sc.next();
+        System.out.println("Enter the City");
+        ContactDetails.city = sc.next();
+        System.out.println("Enter the State");
+        ContactDetails.state = sc.next();
+        System.out.println("Enter the ZipCode");
+        ContactDetails.zip = sc.next();
+        System.out.println("Enter the contact number...");
+        ContactDetails.phoneNo = sc.next();
+        return ContactDetails;
+    }
+
     static void menu() {
         ContactOfPerson ContactDetails = null;
         int choice;
@@ -37,6 +55,15 @@ public class AddressBookMain {
                     ContactDetails = add();
                     break;
                 case 2:
+                    System.out.println("Enter the ContactDetails Name to edit details..");
+                    String firstName = sc.next();
+                    if (firstName.equals(ContactDetails.firstName)) {
+                        ContactDetails = edit(ContactDetails);
+                    } else {
+                        System.out.println(firstName + " is not exists ");
+                    }
+                    break;
+                case 3:
                     System.out.println(ContactDetails);
                     break;
                 default:
