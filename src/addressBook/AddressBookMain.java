@@ -1,12 +1,18 @@
 package addressBook;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AddressBookMain {
+    ArrayList<ContactOfPerson> al = null;
+
+    AddressBookMain() {
+        al = new ArrayList<>();
+    }
 
     static ContactOfPerson ContactDetails;
 
-    static ContactOfPerson add() {
+  public void add(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the Details of ContactDetails");
         System.out.println("Enter the first name");
@@ -24,10 +30,10 @@ public class AddressBookMain {
         System.out.println("Enter the contact number...");
         String phoneNumber = sc.next();
 
-        return new ContactOfPerson(firstName, lastName, address, city, state, zipCode, phoneNumber);
+       al.add(new ContactOfPerson(firstName, lastName, address, city, state, zipCode, phoneNumber));
     }
 
-    static ContactOfPerson edit(ContactOfPerson contactDetails) {
+    public void edit(ContactOfPerson contactDetails) {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter the Address");
@@ -40,44 +46,52 @@ public class AddressBookMain {
         ContactDetails.zip = sc.next();
         System.out.println("Enter the contact number...");
         ContactDetails.phoneNo = sc.next();
-        return ContactDetails;
+
     }
 
-    static ContactOfPerson delete(ContactOfPerson contactDetails) {
-        return null;
+    public void delete(ContactOfPerson contact) {
+        al.remove(contact);
     }
 
     static void menu() {
         ContactOfPerson ContactDetails = null;
+        AddressBookMain addressBookMain = new AddressBookMain();
         int choice;
         do {
             Scanner sc = new Scanner(System.in);
-            System.out.println("Enter ur choice \n 1 : Add \n 2 : Edit \n 3 : Delete \n 4 :Display ");
+            System.out.println("Enter ur choice \n 1 : Add \n 2 : Edit \n 3 : Delete \n 4 : Display ");
             choice = sc.nextInt();   // taking user choice between the given 4 choice
             switch (choice) {
                 case 1:
-                    ContactDetails = add();
+                    addressBookMain.add();
                     break;
                 case 2:
                     System.out.println("Enter the ContactDetails Name to edit details..");
                     String firstName = sc.next();
-                    if (firstName.equals(ContactDetails.firstName)) {
-                        ContactDetails = edit(ContactDetails);
-                    } else {
-                        System.out.println(firstName + " is not exists ");
-                    }
+                   ArrayList<ContactOfPerson> personList = addressBookMain.al;
+                   for (int i =0;i<personList.size();i++){
+                       if(personList.get(i).firstName.equals(firstName)) {
+                           ContactOfPerson contactDetails = personList.get(i);
+
+                           addressBookMain.edit(ContactDetails);
+                       } else {
+                           System.out.println(firstName + " is not exists ");
+                       }
+                   }
+
                     break;
                 case 3:
                     System.out.println("Enter the ContactDetails name to Delete the Details");
-                    String firstName1 = sc.next();
-                    if (firstName1.equals(ContactDetails.firstName)) {
-                        ContactDetails = delete(ContactDetails);
-                    } else {
-                        System.out.println(firstName1 + " is not exists ");
-                    }
+                    firstName = sc.next();
+                    ArrayList <ContactOfPerson> personLists= addressBookMain.al;
+                    for (int i=0;i<personLists.size();i++) {
+                        if (personLists.get(i).firstName.equals(firstName)) {
+                            ContactOfPerson Contact =personLists.get(i);
+                            addressBookMain.delete(Contact);
+                        }}
                     break;
                 case 4:
-                    System.out.println(ContactDetails);
+                    System.out.println(addressBookMain.al);
                     break;
                 default:
                     System.out.println("Enter Num from 1 to 4");
