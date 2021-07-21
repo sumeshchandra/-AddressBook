@@ -43,13 +43,17 @@ public class AddressBookMain {
         return ContactDetails;
     }
 
+    static ContactOfPerson delete(ContactOfPerson contactDetails) {
+        return null;
+    }
+
     static void menu() {
         ContactOfPerson ContactDetails = null;
         int choice;
         do {
             Scanner sc = new Scanner(System.in);
-            System.out.println("Enter ur choice \n 1 : Add \n 2 : Edit \n 3 : Display ");
-            choice = sc.nextInt();   // taking user choice between the given 3 choice
+            System.out.println("Enter ur choice \n 1 : Add \n 2 : Edit \n 3 : Delete \n 4 :Display ");
+            choice = sc.nextInt();   // taking user choice between the given 4 choice
             switch (choice) {
                 case 1:
                     ContactDetails = add();
@@ -64,12 +68,21 @@ public class AddressBookMain {
                     }
                     break;
                 case 3:
+                    System.out.println("Enter the ContactDetails name to Delete the Details");
+                    String firstName1 = sc.next();
+                    if (firstName1.equals(ContactDetails.firstName)) {
+                        ContactDetails = delete(ContactDetails);
+                    } else {
+                        System.out.println(firstName1 + " is not exists ");
+                    }
+                    break;
+                case 4:
                     System.out.println(ContactDetails);
                     break;
                 default:
-                    System.out.println("Enter Num from 1 to 3");
+                    System.out.println("Enter Num from 1 to 4");
             }
-        } while (choice < 3);
+        } while (choice < 5);
     }
 
     public static void main(String[] args) {
