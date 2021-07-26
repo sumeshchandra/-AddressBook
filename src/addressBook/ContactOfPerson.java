@@ -19,5 +19,6 @@ public class ContactOfPerson {
 		this.state = state;
 		this.zip = zip;
 		this.phoneNo = phoneNo;
+
 	}
 }
