@@ -1,6 +1,7 @@
 package addressBook;
 
 public class ContactOfPerson {
+
 	public String firstName;
 	public String lastName;
 	public String address;
